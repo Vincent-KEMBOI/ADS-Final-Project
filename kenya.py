@@ -11,7 +11,8 @@ try:
     df = pd.read_excel(file_path)
     print("Data loaded successfully!")
 except Exception as e:
-    print(f"Error loading the file: {e}")
+    st.error(f"Error loading the file: {e}")
+    st.stop()  # Stop execution if the file fails to load
 
 # Rename 'Row Labels' to 'County'
 df = df.rename(columns={'Row Labels': 'County'})
